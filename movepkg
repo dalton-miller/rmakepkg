@@ -1,0 +1,3 @@
+#!/bin/bash
+find . -iname "*.pkg.tar.xz" -type f -exec /bin/mv {} /home/ninja-1/Projects/Bridge/aur64 \;
+repo-add custom.db.tar.gz /home/ninja-1/Projects/Bridge/aur64/*.pkg.tar.xz 

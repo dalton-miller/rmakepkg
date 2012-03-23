@@ -1,0 +1,21 @@
+#!/usr/bin/python2
+
+import os
+import subprocess
+
+base = "/home/ninja-1/Projects/Bridge/aur64/build"
+failed=[]
+dir = os.listdir(base)
+dir.sort()
+os.chdir(base)
+print dir
+for x in range(len(dir)):
+    os.chdir(dir[x])
+    retcode = subprocess.call(['makepkg', '-s'])
+    if retcode==1:
+        failed.append(dir[x])
+    os.chdir(base)
+
+subprocess.call(['movepkg'])
+
+print failed
