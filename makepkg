@@ -3,7 +3,7 @@
 import os
 import subprocess
 
-base = "/home/ninja-1/Projects/Bridge/aur64/build"
+base = "/aur/build"
 failed=[]
 dir = os.listdir(base)
 dir.sort()
@@ -16,6 +16,6 @@ for x in range(len(dir)):
         failed.append(dir[x])
     os.chdir(base)
 
-subprocess.call(['movepkg'])
+subprocess.call(['/aur/movepkg'])
 
 print failed
